@@ -19,12 +19,10 @@ node {
         }
     }
     stage('Build Docker image') {
-        docker.build("alexanderwyss/web-starter")
+        docker.build("alexanderwyss/dnd")
     }
-    /*
     stage('Deploy') {
-        sh 'docker stop web-starter || true && docker rm -f web-starter || true'
-        sh 'docker run -d --expose 8080 --restart unless-stopped --name web-starter -e NODE_ENV=production -e PORT=8080 -e VIRTUAL_HOST=web-starter.wyss.tech -e VIRTUAL_PORT=8080 -e LETSENCRYPT_HOST=web-starter.wyss.tech alexanderwyss/web-starter:latest'
+        sh 'docker stop dnd || true && docker rm -f dnd || true'
+        sh 'docker run -d --expose 8080 --restart unless-stopped --name dnd -e NODE_ENV=production -e PORT=8080 -e VIRTUAL_HOST=dnd.wyss.tech -e VIRTUAL_PORT=8080 -e LETSENCRYPT_HOST=dnd.wyss.tech alexanderwyss/dnd:latest'
     }
-    */
 }
